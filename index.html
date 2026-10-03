@@ -14,12 +14,14 @@
 
     <form id="task-form">
         <label for="task-title">Task Title:</label>
-        <input type="text" id="task-title" name="task-title" required>
+        <input type="text" id="task-title" name="task-title"
+               placeholder="Enter task title" required>
 
         <br><br>
 
         <label for="task-description">Description:</label>
-        <textarea id="task-description" name="task-description"></textarea>
+        <textarea id="task-description" name="task-description"
+                  placeholder="Enter task description"></textarea>
 
         <br><br>
 
@@ -28,7 +30,19 @@
 
     <h2>My Tasks</h2>
 
+    <!-- Search field -->
+    <input
+        type="search"
+        id="task-search"
+        placeholder="Search tasks..."
+        aria-label="Search tasks"
+    >
+
+    <!-- Task list -->
     <ul id="task-list"></ul>
+
+    <!-- No results message -->
+    <p id="no-tasks-message" hidden>No tasks found.</p>
 
     <script src="script.js"></script>
 </body>
