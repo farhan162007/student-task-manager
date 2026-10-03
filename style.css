@@ -1,0 +1,153 @@
+/* style.css */
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f5f7fa;
+    --text-color: #333;
+    --danger-color: #e74c3c;
+    --success-color: #2ecc71;
+    --card-bg: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+/* Form Styling */
+.task-form {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task-form input, .task-form textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.task-form button {
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.task-form button:hover {
+    background-color: #357abd;
+}
+
+/* Task List Styling */
+.task-list {
+    width: 100%;
+    max-width: 500px;
+    list-style: none;
+}
+
+.task-item {
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+}
+
+.task-item.completed {
+    opacity: 0.6;
+    text-decoration: line-through;
+    border-left: 4px solid var(--success-color);
+}
+
+.delete-btn {
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .task-form, .task-list {
+        max-width: 100%;
+    }
+}
+
+/* =========================================
+   RESPONSIVE DESIGN FOR MOBILE
+   ========================================= */
+@media (max-width: 600px) {
+    body {
+        padding: 10px; /* Reduce outer padding on small screens */
+    }
+
+    .task-form, .task-list {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* Make inputs full width and prevent iOS auto-zoom */
+    .task-form input, 
+    .task-form textarea,
+    .task-form button {
+        width: 100%;
+        font-size: 16px; /* 16px prevents iPhones from auto-zooming when typing */
+        padding: 12px;   /* Larger padding for easy finger tapping */
+    }
+
+    /* Stack task content vertically so it doesn't overflow */
+    .task-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    /* Make action buttons easier to tap on mobile */
+    .delete-btn, .complete-btn {
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center;
+    }
+}
