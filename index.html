@@ -1,1 +1,49 @@
-ECHO is on.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Student Task Manager</h1>
+
+    <h2>Add a New Task</h2>
+
+    <form id="task-form">
+        <label for="task-title">Task Title:</label>
+        <input type="text" id="task-title" name="task-title"
+               placeholder="Enter task title" required>
+
+        <br><br>
+
+        <label for="task-description">Description:</label>
+        <textarea id="task-description" name="task-description"
+                  placeholder="Enter task description"></textarea>
+
+        <br><br>
+
+        <button type="submit">Add</button>
+    </form>
+
+    <h2>My Tasks</h2>
+
+    <!-- Search field -->
+    <input
+        type="search"
+        id="task-search"
+        placeholder="Search tasks..."
+        aria-label="Search tasks"
+    >
+
+    <!-- Task list -->
+    <ul id="task-list"></ul>
+
+    <!-- No results message -->
+    <p id="no-tasks-message" hidden>No tasks found.</p>
+
+    <script src="script.js"></script>
+</body>
+</html>
