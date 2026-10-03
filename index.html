@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Task Manager</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -11,9 +12,9 @@
 
     <h2>Add a New Task</h2>
 
-    <form>
+    <form id="task-form">
         <label for="task-title">Task Title:</label>
-        <input type="text" id="task-title" name="task-title">
+        <input type="text" id="task-title" name="task-title" required>
 
         <br><br>
 
@@ -25,5 +26,10 @@
         <button type="submit">Add</button>
     </form>
 
+    <h2>My Tasks</h2>
+
+    <ul id="task-list"></ul>
+
+    <script src="script.js"></script>
 </body>
 </html>
