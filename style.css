@@ -1,153 +1,291 @@
-/* style.css */
+/* =========================================================
+   Student Task Manager — "study desk" theme
+   Graph-paper background, ink-navy outlines, highlighter accent.
+   Works with element selectors, so it still applies even if the
+   HTML uses different class names than the old stylesheet.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;600&display=swap');
+
 :root {
-    --primary-color: #4a90e2;
-    --secondary-color: #f5f7fa;
-    --text-color: #333;
-    --danger-color: #e74c3c;
-    --success-color: #2ecc71;
-    --card-bg: #ffffff;
+    --ink: #17233c;
+    --ink-soft: #5a6785;
+    --paper: #f3f6fa;
+    --grid: #dde5ef;
+    --card: #ffffff;
+    --highlight: #ffd84d;
+    --primary: #2f5bea;
+    --primary-dark: #2347c4;
+    --danger: #d6402f;
+    --success: #1f9d6b;
+
+    --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+    --font-body: 'Figtree', 'Segoe UI', system-ui, sans-serif;
 }
 
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* ---------- Page ---------- */
 body {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 28px 28px;
     min-height: 100vh;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
 }
 
+/* ---------- Headings ---------- */
 h1 {
-    margin-bottom: 20px;
-    color: var(--primary-color);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2rem, 6vw, 2.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 28px;
 }
 
-/* Form Styling */
-.task-form {
-    background: var(--card-bg);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+/* highlighter-pen swipe under the whole title */
+h1 {
+    background-image: linear-gradient(var(--highlight), var(--highlight));
+    background-repeat: no-repeat;
+    background-size: 100% 0.38em;
+    background-position: 0 88%;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 6px;
+}
+
+h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+    text-align: left;
+    margin-bottom: 14px;
+}
+
+/* ---------- Cards: the add-task form and the task list area ---------- */
+form,
+.task-form,
+#task-form,
+.form-container,
+.task-container {
+    background: var(--card);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    box-shadow: 5px 5px 0 var(--ink);
+    padding: 22px;
+    margin-bottom: 36px;
+    display: block;
     width: 100%;
-    max-width: 500px;
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    max-width: none;
 }
 
-.task-form input, .task-form textarea {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
+/* ---------- Form controls ---------- */
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
 }
 
-.task-form button {
-    padding: 10px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
+input:not([type='checkbox']):not([type='radio']),
+textarea {
+    display: block;
+    width: 100%;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--ink);
+    background: var(--card);
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--ink-soft);
+    opacity: 0.8;
+}
+
+input:not([type='checkbox']):focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(47, 91, 234, 0.2);
+}
+
+/* Search box above the list */
+input[type='search'] {
+    margin-bottom: 18px;
+}
+
+/* ---------- Buttons ---------- */
+button {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    background: var(--primary);
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    padding: 10px 22px;
     cursor: pointer;
-    transition: background 0.3s;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
 }
 
-.task-form button:hover {
-    background-color: #357abd;
+button:hover {
+    background: var(--primary-dark);
 }
 
-/* Task List Styling */
+button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0 0 0 var(--ink);
+}
+
+button:focus-visible,
+input[type='checkbox']:focus-visible {
+    outline: 3px solid var(--highlight);
+    outline-offset: 2px;
+}
+
+/* ---------- Task list ---------- */
+ul,
 .task-list {
-    width: 100%;
-    max-width: 500px;
     list-style: none;
+    width: 100%;
+    max-width: none;
 }
 
+li,
 .task-item {
-    background: var(--card-bg);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: transform 0.2s;
+    position: relative;
+    display: block;
+    background: var(--card);
+    border: 2px solid var(--ink);
+    border-left-width: 8px;
+    border-radius: 10px;
+    padding: 14px 16px 14px 52px;
+    margin-bottom: 12px;
+    word-break: break-word;
+    transition: opacity 0.2s ease, border-left-color 0.2s ease;
 }
 
-.task-item:hover {
-    transform: translateY(-2px);
-}
-
-.task-item.completed {
-    opacity: 0.6;
-    text-decoration: line-through;
-    border-left: 4px solid var(--success-color);
-}
-
-.delete-btn {
-    background-color: var(--danger-color);
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
+li input[type='checkbox'] {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    accent-color: var(--success);
     cursor: pointer;
 }
 
+/* Delete button inside each task */
+li button,
+.delete-btn {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--danger);
+    background: var(--card);
+    border: 2px solid var(--danger);
+    border-radius: 6px;
+    padding: 4px 12px;
+    box-shadow: none;
+}
+
+li button:hover,
 .delete-btn:hover {
-    background-color: #c0392b;
+    color: #fff;
+    background: var(--danger);
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-    .task-form, .task-list {
-        max-width: 100%;
-    }
+li button:active,
+.delete-btn:active {
+    transform: none;
 }
 
-/* =========================================
-   RESPONSIVE DESIGN FOR MOBILE
-   ========================================= */
+li.completed,
+li.done,
+.task-item.completed,
+li:has(input[type='checkbox']:checked) {
+    opacity: 0.6;
+    border-left-color: var(--success);
+    text-decoration: line-through;
+    text-decoration-color: var(--ink-soft);
+}
+
+/* keep the delete button readable on completed tasks */
+li.completed button,
+li.done button,
+li:has(input[type='checkbox']:checked) button {
+    text-decoration: none;
+}
+
+/* ---------- Mobile ---------- */
 @media (max-width: 600px) {
     body {
-        padding: 10px; /* Reduce outer padding on small screens */
+        padding: 24px 14px 48px;
     }
 
-    .task-form, .task-list {
-        max-width: 100%;
-        width: 100%;
+    form,
+    .task-form,
+    #task-form,
+    .form-container,
+    .task-container {
+        padding: 18px;
+        box-shadow: 4px 4px 0 var(--ink);
     }
 
-    /* Make inputs full width and prevent iOS auto-zoom */
-    .task-form input, 
-    .task-form textarea,
+    input:not([type='checkbox']),
+    textarea {
+        font-size: 16px;
+    }
+
+    form button,
     .task-form button {
         width: 100%;
-        font-size: 16px; /* 16px prevents iPhones from auto-zooming when typing */
-        padding: 12px;   /* Larger padding for easy finger tapping */
+        padding: 12px;
     }
 
-    /* Stack task content vertically so it doesn't overflow */
-    .task-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    /* Make action buttons easier to tap on mobile */
-    .delete-btn, .complete-btn {
-        padding: 10px 16px;
+    li button,
+    .delete-btn {
         width: 100%;
+        padding: 8px 12px;
         text-align: center;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
     }
 }
