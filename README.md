@@ -31,7 +31,7 @@ The project covers local Git repository management, feature branches, commits, G
 
 ## Screenshot
 
-![Student Task Manager interface](screenshots/student-task-manager.png)
+![Student Task Manager interface]([screenshots/student-task-manager.png](https://res.cloudinary.com/q9cuwbjz/image/upload/v1791299564/IMG-20261006-WA0074.jpg))
 
 *The Student Task Manager running locally in the browser (`index.html`).*
 
