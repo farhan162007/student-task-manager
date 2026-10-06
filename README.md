@@ -29,6 +29,20 @@ The project covers local Git repository management, feature branches, commits, G
 * Task cards and buttons
 * Collaborative Git workflow
 
+## Screenshot
+
+![Student Task Manager interface](screenshots/student-task-manager.png)
+
+*The Student Task Manager running locally in the browser (`index.html`).*
+
+The screenshot shows the main interface of the application:
+
+* **Header:** The page title, "Student Task Manager", is displayed at the top of a graph-paper style background.
+* **Add a New Task:** A form card with a **Task Title** field, a **Description** text area, and an **Add** button. In the screenshot, the title "assignment" has been typed into the form. This is the interface built on the `feature/task-form` branch.
+* **My Tasks:** The task list is shown below the form. Each task appears as a card with a checkbox to mark it as completed and a **Delete** button to remove it.
+* **Search:** The search box above the list filters tasks as the user types. In the screenshot, searching for "g" shows the matching task, "git - github". This is the functionality built on the `feature/task-search` branch.
+* **Styling and layout:** The form card, task cards, buttons, and spacing are styled with CSS and adapt to smaller screens, as developed on the `feature/task-style` branch.
+
 ## Technologies
 
 * **HTML5** — Application structure
@@ -159,9 +173,9 @@ student-task-manager/
 ├── index.html
 ├── style.css
 ├── script.js
+├── screenshots/
+│   └── student-task-manager.png
 └── README.md
-```
-
 ```
 
 ## Version History
@@ -180,5 +194,4 @@ This project was developed collaboratively by the two team members. Both contrib
 
 **Project:** Student Task Manager
 **Version:** 1.0.0
-**Repository:** *Add GitHub Repository URL*
-
+**Repository:** [*Add GitHub Repository URL*](https://github.com/farhan162007/student-task-manager/)
