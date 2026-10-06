@@ -15,7 +15,7 @@ The project covers local Git repository management, feature branches, commits, G
 | Student 1 | *BSDSF25M041* | *sarmad-ui*  |
 | Student 2 | *BSDSF25M044* | *farhan162007*  |
 
-**GitHub Repository:** *[Add repository URL](https://github.com/farhan162007/student-task-manager/)*
+**GitHub Repository:** *[Repository URL](https://github.com/farhan162007/student-task-manager/)*
 
 ## Features
 
