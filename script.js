@@ -68,10 +68,6 @@ taskSearch.addEventListener("input", function () {
 });
 
 
-// ===============================
-// ADD NEW TASK
-// ===============================
-
 taskForm.addEventListener("submit", function (event) {
 
     event.preventDefault();
