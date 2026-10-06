@@ -7,9 +7,7 @@ const taskSearch = document.getElementById("task-search");
 const noTasksMessage = document.getElementById("no-tasks-message");
 
 
-// ===============================
-// SEARCH / FILTER TASKS
-// ===============================
+
 
 function filterTasks() {
     const searchText = taskSearch.value.trim().toLowerCase();
